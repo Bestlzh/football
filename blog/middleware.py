@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
+# 中间件实现ip拦截
 class BlockIP(MiddlewareMixin):
     def is_block_ip(self,ip):
         return int(ip[-1]) % 2 == 0

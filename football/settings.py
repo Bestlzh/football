@@ -150,7 +150,7 @@ CACHES = {
     }
 }
 
-#
+#logging 的配置
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
