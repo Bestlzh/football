@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block personResource %}
+    <title>首页</title>
+
+
+
+{% endblock %}
+
+
+
+{%block content%}
+    {% for article in articles %}
+<div class="posts">
+                <h1 class="content-subhead">文章</h1>
+
+                <!-- A single blog post -->
+                <section class="post">
+                    <header class="post-header">
+                        <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="{% static 'images/default.jpg' %}">
+
+                        <h3 class="post-title"><a href="{% url 'blog:content' article.id  %}">{{ article.title }}</a></h3>
+
+                        <p class="post-meta">
+                            <a href="#" class="post-author">{{ article.author }}</a> 发表于 <a class="post-category post-category-design" href="#">{{ article.create_time }}</a>
+{#                            By <a href="#" class="post-author">{{ article.author }}</a> 发表于 <a class="post-category post-category-design" href="#">CSS</a> <a class="post-category post-category-pure" href="#">Pure</a>#}
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            {{ article.content }}
+                        </p>
+                    </div>
+                </section>
+            </div>
+    {% endfor %}
+{% endblock %}
+

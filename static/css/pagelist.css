@@ -1,0 +1,10 @@
+.page_list  ul li{
+    float: left;
+    font-size: 12px;
+}
+.page_list ul{
+
+    border: 1px black solid;
+    border-radius: 20px;
+    margin: 10px;
+}

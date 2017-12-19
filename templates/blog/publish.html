@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block personResource %}
+    <title>发表文章</title>
+
+
+{% endblock %}
+
+
+
+{%block content%}
+    <form class="pure-form" action="{% url 'blog:publish' %}" method="post">
+    {%csrf_token%}
+    <fieldset class="pure-group">
+        <input type="text" class="pure-input-1" name="title" placeholder="A title" value="{{ article.title }}">
+        <textarea style="height: 200px;" class="pure-input-1" name="content" placeholder="Textareas work too">{{ article.content }}</textarea>
+    </fieldset>
+    <input type="hidden" name="aid" value="{{article.id}}">
+    <button type="submit" class="pure-button pure-input-1-5 pure-button-primary">发表</button>
+</form>
+{% endblock %}

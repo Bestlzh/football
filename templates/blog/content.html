@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block personResource %}
+    <title>文章内容</title>
+    <script type="text/javascript" src="{% static 'js/content.js' %}"></script>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+    <div style="padding-bottom: 60px; border-bottom: 2px solid darkcyan">
+    <h3>{{ article.title }}    <a  style="float:right;" href="{% url 'blog:publish' article.id %}">编辑</a></h3>
+
+    <h4>{{ article.author }}</h4>
+    <h5>{{ article.create_time }}</h5>
+    <p>{{ article.content }}
+
+    </p>
+    <form class="pure-form" action="{% url 'blog:content' article.id %}" method="post">
+        {% csrf_token %}
+        <input class="pure-input-2-3" type="text" name="comment" placeholder="说说您的看法吧">
+        <button type="submit" class="pure-button pure-button-primary">评论</button>
+    </form>
+    </div>
+    <h3>文章评论</h3>
+    {% for comment in comments %}
+        <div style="border: 1px solid orange;padding-left:20px;border-radius: 10px ;margin-bottom:10px ">
+            <p style="margin-bottom: 0px">{{ comment.username }}&nbsp;&nbsp;回复&nbsp;&nbsp;{{ comment.parent.username }}</p>
+            <p style="" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ comment.comment }}</p>
+            <h6 style="float: right;margin: 0px ;padding: 0px">{{ comment.create_time }}</h6>
+
+            <p style="font-size: 10px;color: orange ;width: 30px" class="preply">回复</p>
+
+
+            <div class="reply" style="display: none">
+
+                <form class="pure-form" action="{% url 'blog:content' article.id comment.id %}" method="post">
+                    {% csrf_token %}
+                    <input id="reply" class="pure-input-1-5" type="text" name="comment" placeholder="说说您的看法吧">
+                    <button type="submit" class=" pure-button pure-button-primary">回复</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
