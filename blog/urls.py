@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^publish/$',views.publish,name='publish'),
     url(r'^search/$',views.search,name='search'),
     url(r'^publish/(\d+)/$',views.publish,name='publish'),
+    url(r'^sort_article/$',views.sort_article,name='sort_article'),
 
 ]

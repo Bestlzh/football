@@ -43,9 +43,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-#     全站缓存中间件，必须在第一个
-#     'django.middleware.cache.UpdataCacheMiddleware',
-
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,8 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'blog.middleware.BlockIP',
-    # 站点缓存，在最后一个
-    # 'django.middleware.cache.FetchCacheMiddleware',
+
 
 
 

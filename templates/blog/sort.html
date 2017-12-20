@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试排序</title>
+</head>
+<body>
+<ul>
+    {% for article,c in article_count %}
+       <li> {{ article.title }}点击量:{{ c }}
+        </li>
+
+    {% endfor %}
+
+</ul>
+</body>
+</html>

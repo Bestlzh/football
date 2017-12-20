@@ -50,7 +50,7 @@
                 {% for pg in pages_range %}
 
                     {% if articles.num == pg %}
-                        <li style="font-size: 20px"><a href="?page={{pg}}">{{ articles.number}}</a></li>
+                        <li class="active" style="font-size: 20px"><a href="?page={{pg}}">{{ articles.number}}</a></li>
                     {% else %}
                         <li><a href="?page={{pg}}">{{pg}}</a></li>
 
